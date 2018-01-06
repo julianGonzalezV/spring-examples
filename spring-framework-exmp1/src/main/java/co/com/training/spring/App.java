@@ -1,7 +1,7 @@
 package co.com.training.spring;
 
-import co.com.training.beans.Greeting;
-import co.com.training.beans.Person;
+import co.com.training.beans.clasic.Greeting;
+import co.com.training.beans.clasic.Person;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -33,6 +33,11 @@ public class App {
         //Ejemplo de constructor con parámetros
         Person person = (Person) context.getBean("person");
         System.out.println(person);
+
+
+        System.out.println("::::Ejemplo usando AutoWire en el xml");
+        co.com.training.beans.autowireexample.Person personAw = (co.com.training.beans.autowireexample.Person) context.getBean("person2Aw");
+        System.out.println(personAw);
 
 
         //importante para liberar recursos

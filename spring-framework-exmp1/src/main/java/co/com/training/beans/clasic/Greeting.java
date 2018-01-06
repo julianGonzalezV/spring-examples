@@ -1,4 +1,4 @@
-package co.com.training.beans;
+package co.com.training.beans.clasic;
 
 import org.springframework.beans.factory.annotation.Value;
 

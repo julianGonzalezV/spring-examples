@@ -1,13 +1,11 @@
 package co.com.training.spring;
 
-import co.com.training.beans.AppConfiguration;
-import co.com.training.beans.AppConfiguration2;
-import co.com.training.beans.Greeting;
-import co.com.training.beans.Person;
+import co.com.training.beans.clasic.AppConfiguration;
+import co.com.training.beans.clasic.AppConfiguration2;
+import co.com.training.beans.clasic.Greeting;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  *Clase que muestra el ejemplo de D injection sin xml file, vaya a App.java si desea saber como es con xml

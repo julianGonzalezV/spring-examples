@@ -3,25 +3,58 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="greetinBean" class="co.com.training.beans.Greeting">
+    <bean id="greetinBean" class="co.com.training.beans.clasic.Greeting">
         <property name="saludo" value="saludando ando"/>
     </bean>
 
-    <bean id="person" class="co.com.training.beans.Person">
+    <bean id="person" class="co.com.training.beans.clasic.Person">
         <property name="country">
-            <bean id="country" class="co.com.training.beans.Country">
+            <bean id="country" class="co.com.training.beans.clasic.Country">
                 <property name="name" value="Colombia"/>
+                <property name="city">
+                    <bean id="city" class="co.com.training.beans.clasic.City">
+                        <property name="name" value="Tulua"/>
+                    </bean>
+                </property>
+                <property name="cities">
+                    <list>
+                        <bean id="city1" class="co.com.training.beans.clasic.City">
+                            <property name="name"  value="Tulua"/>
+                        </bean>
+                        <bean id="city1" class="co.com.training.beans.clasic.City">
+                            <property name="name"  value="Cali"/>
+                        </bean>
+                        <bean id="city1" class="co.com.training.beans.clasic.City">
+                            <property name="name"  value="Medellin"/>
+                        </bean>
+                    </list>
+                </property>
             </bean>
         </property>
-        <property name="city">
-            <bean id="city" class="co.com.training.beans.City">
-                <property name="name" value="Tulua"/>
-            </bean>
-        </property>
+
         <constructor-arg index="0" value="1116237362"/>
         <constructor-arg index="1" value="julian"/>
-        <constructor-arg index="2" value="tulua"/>
+        <constructor-arg index="2" value="Juliancho"/>
     </bean>
 
+
+
+    <bean id="person2Aw" class="co.com.training.beans.autowireexample.Person" autowire="byName" >
+    <constructor-arg index="0" value="1116237362"/>
+        <constructor-arg index="1" value="julian"/>
+        <constructor-arg index="2" value="Juliancho"/>
+    </bean>
+
+   <!-- Note como el id debe ser el mismo nombre del atributo en la clase autowireexample.City
+    en este caso cityAw, TAMBIEN note como uso varios autowire uno en person2Aw y otro en country
+    porque en ambos existen beans-->
+    <bean id="cityAw" class="co.com.training.beans.autowireexample.City" >
+        <property name="name" value="TuluaAW" />
+
+    </bean>
+
+    <bean id="country" class="co.com.training.beans.autowireexample.Country" autowire="byName">
+        <property name="name" value="ColombiaAW" />
+    </bean>
 
 </beans>

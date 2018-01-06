@@ -1,4 +1,4 @@
-package co.com.training.beans;
+package co.com.training.beans.clasic;
 
 /**
  * La idea con esta clase es mostrar como se haría la inyección de dependencias vía constructor, vaya al xml para que evidencie el resultado
@@ -10,7 +10,7 @@ public class Person {
 
     //los vamos a inyectar por set
     private Country country;
-    private City city;
+
 
     public Person(int id, String name, String nickname ) {
         this.id = id;
@@ -42,14 +42,6 @@ public class Person {
         this.country = country;
     }
 
-    public City getCity() {
-        return city;
-    }
-
-    public void setCity(City city) {
-        this.city = city;
-    }
-
     @Override
     public String toString() {
         return "Person{" +
@@ -57,7 +49,6 @@ public class Person {
                 ", name='" + name + '\'' +
                 ", nickname='" + nickname + '\'' +
                 ", country=" + country +
-                ", city=" + city +
                 '}';
     }
 }

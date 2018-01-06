@@ -124,5 +124,20 @@ dependencies {
 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:::::::::::2018-01-04:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+AutoWire: cuando lo colocamos en el xml entonces el lo que hace es buscar la relacion de manera implicita de los objetos(beans) que tengo dentro de otro bean, existen de 3 tipos
+	byName: mira simplemente el nombre de los objetos que tenemos y busca lo que es igual a ello para relacionarlo a mi bean actual
+	byType: Busca relacionar por tipo (busca la clase adecuada), sin embargo puede llegar a fallar en el caso que se tengan varias objetos del mismo tipo, no va a asaber cin cual relacionarlo.
+	contstructor: 
+Cuando se trata de configurar vía xmls el autowire , se vuelve muy complejo porque ya no se sabe que bean está siendo injectado, se puede llegar a confundir 
+quizas con anotaciones se ataque el problema dado que la anotacion estará justo encima del objeto declarado para ser injected.
+
+:::::::::::2018-01-04:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+
+
+
+
 
 

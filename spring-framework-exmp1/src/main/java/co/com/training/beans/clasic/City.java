@@ -1,4 +1,4 @@
-package co.com.training.beans;
+package co.com.training.beans.clasic;
 
 public class City {
     private String name;

@@ -1,6 +1,6 @@
-package co.com.training.beans;
+package co.com.training.beans.autowireexample;
 
-public class Country {
+public class City {
     private String name;
 
 
@@ -14,7 +14,7 @@ public class Country {
 
     @Override
     public String toString() {
-        return "Country{" +
+        return "City{" +
                 "name='" + name + '\'' +
                 '}';
     }
