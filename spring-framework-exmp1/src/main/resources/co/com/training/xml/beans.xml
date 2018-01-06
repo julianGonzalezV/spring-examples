@@ -39,10 +39,11 @@
 
 
 
-    <bean id="person2Aw" class="co.com.training.beans.autowireexample.Person" autowire="byName" >
-    <constructor-arg index="0" value="1116237362"/>
-        <constructor-arg index="1" value="julian"/>
-        <constructor-arg index="2" value="Juliancho"/>
+    <!--Si el tag scope no se coloca ENTONCES por defecto es singleton, CON PROTOTYPE LAS instancias se cargan in a lazy way-->
+    <bean id="person2Aw" class="co.com.training.beans.autowireexample.Person" autowire="byName" scope="singleton" lazy-init="true" >
+    <constructor-arg index="0" value="0"/>
+        <constructor-arg index="1" value="-"/>
+        <constructor-arg index="2" value="-"/>
     </bean>
 
    <!-- Note como el id debe ser el mismo nombre del atributo en la clase autowireexample.City

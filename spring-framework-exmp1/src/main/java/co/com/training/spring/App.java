@@ -35,10 +35,20 @@ public class App {
         System.out.println(person);
 
 
-        System.out.println("::::Ejemplo usando AutoWire en el xml");
+
+
+        System.out.println("::::Ejemplo usando AutoWire, SCOPE en el xml: singleton retorna la misma instancia incluso cuando se modifica se ve afectada" +
+                "  PROTOTYPE retorna una nueva instancia");
         co.com.training.beans.autowireexample.Person personAw = (co.com.training.beans.autowireexample.Person) context.getBean("person2Aw");
+        personAw.setId(25);
+        personAw.setName("otrooo");
         System.out.println(personAw);
 
+
+        co.com.training.beans.autowireexample.Person personAw2 = (co.com.training.beans.autowireexample.Person) context.getBean("person2Aw");
+        System.out.println(personAw2);
+
+        System.out.println(personAw.equals(personAw2));
 
         //importante para liberar recursos
         ((ConfigurableApplicationContext) context).close();
