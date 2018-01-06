@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring-framework-exmp1 .iml" filepath="$PROJECT_DIR$/.idea/modules/spring-framework-exmp1 .iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring-framework-exmp1_.iml" filepath="$PROJECT_DIR$/.idea/modules/spring-framework-exmp1_.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring-framework-exmp1__main.iml" filepath="$PROJECT_DIR$/.idea/modules/spring-framework-exmp1__main.iml" group="spring-framework-exmp1_" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/spring-framework-exmp1__test.iml" filepath="$PROJECT_DIR$/.idea/modules/spring-framework-exmp1__test.iml" group="spring-framework-exmp1_" />
+    </modules>
+  </component>
+</project>

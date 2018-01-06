@@ -1,0 +1,128 @@
+read: https://dzone.com/articles/spring-boot-vs-spring-mvc-vs-spring-how-do-they-compare
+Importante del link anterior:
+when DI or IOC is used properly, we can develop loosely coupled applications. And loosely coupled applications can be easily unit tested.
+
+
+Source
+https://www.tutorialspoint.com/spring/spring_overview.htm
+
+It was initially written by Rod Johnson 2002  
+
+What is Spring?
+A framework with a set of techniques, patterns, approved an tested 
+
+has a container of  Inversion of Control (IoC)  IOC 
+Whats IoC?
+An external agent controls the workflow
+example of this is de DI(Dependency injection):
+
+What's an object required via:
+- Constructor 
+- Properties(set)
+- Sertvice/interface
+
+
+
+
+Spring does not reinvent the wheel,
+
+Spring does not reinvent the wheel,
+
+Dependency Injection?:
+	Dependency: Class A depends of class B
+	Injection: Class B will be injected on A, passing B as parameter of B constructor or by post-construction(set Method).
+
+
+
+Principio de Inyección de Dependencias (DIP) min 16:22 (https://www.youtube.com/watch?v=r4kqcSs4F7I)
+-Abstracciones sobre implementaciones (No depender de las implementaciones sino tener algo más abstracto)
+
+::::Aspect Oriented Programming (AOP)::::::::::::::::::
+It is one of the Key components of srping:
+- It is a framework who  spans(includes) the cross-cutting concerns (logging, declarative transactions, security, caching, etc)
+- Conceptually separate from the application's business logic
+
+
+:::::::SCC  Spring core container:::::::::::::::::
+
+it is not required(pero recomendado) for doing IOC but it is a IOC container that manage the Object life or cicle (creation, binding, destroying them)
+
+A managed objects is a bean!!
+
+Others IoC container:
+Gravity 
+Google Guice
+
+
+:::::::::MODULES(around 20 )::::::::::::::::::::::::::::::::::::::::::
+https://www.tutorialspoint.com/spring/spring_architecture.htm
+
+Spring has severals layer like:
+1)Layer Data Access Integration module who  spans the next modules:
+	- ORM
+	- OXM
+	- JDBC
+	- JMS
+2)Layer Web modul who includes:
+
+- The Web module provides basic web-oriented integration features such as multipart file-upload functionality and the initialization of the IoC container using servlet listeners and a web-oriented application context.
+
+- The Web-MVC module contains Spring's Model-View-Controller (MVC) implementation for web applications.
+
+- The Web-Socket module provides support for WebSocket-based, two-way communication between the client and the server in web applications.
+
+- The Web-Portlet module provides the MVC implementation to be used in a portlet environment and mirrors the functionality of Web-Servlet module
+
+
+3)Layer Core container(base necesaria para entender el core de spring), que incluye los módulos
+-Beans  provides BeanFactory,
+-Core
+-Context
+-SpEL module provides a powerful expression language for querying and manipulating an object graph at runtime.
+
+4)Layer Test
+
+
+
+
+Advantages:
+-Integrity with others tool set o teh like Hibernate 
+-Organized code 
+-Defines Programing standars
+
+
+
+Mitos:
+Verbose Xml, but now it is done vía anotations
+
+
+Srping allows you to pick and choose which modules are applicable to you
+
+
+
+HERE I CAN SAY THAT SPRING MODULES INCLUDE MOST OF THE TOOLS WE NEED FOR DEVELOPING AN APPLICATION
+
+
+
+2018-01-04:::::::::::::::::::::Spring - Environment Setup:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+1-recordar que la DI se puede hacer pos constructor o sets mejor constructor y para desacople entonces una interfaz (ejemplo Equipo de futbol de un jugador por si cambia de equipo)
+-Digamos que la clase se llama Jugador, entonces el primer problema de si cambia de equipo es que la clase Equipo sea una interfaz y la implementación sean los equipos
+-Pero además imaginemos sí hay más dependencias como traje(deportivo, gala, formal, informal) , de nuevo la interfaz traje y el constructor de jugador recibiría la implementación correspondiente
+...Lo anterior es lo que ataca Spring como premisa de la DI , mediante SPRING CONTAINER
+
+Instalación desde la página Oficial: Solo es con la dependencia gradle :):
+https://projects.spring.io/spring-framework/
+versión a 2018-01-04...5.0.2 (estable)
+
+Cree un nuevo proyecto gradle
+coloque la dependencia 
+
+dependencies {
+    compile 'org.springframework:spring-context:5.0.2.RELEASE'
+}
+
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
