@@ -4,7 +4,24 @@
     http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="greetinBean" class="co.com.training.beans.Greeting">
-        <property name="saludo" value="saludando ando" />
+        <property name="saludo" value="saludando ando"/>
     </bean>
+
+    <bean id="person" class="co.com.training.beans.Person">
+        <property name="country">
+            <bean id="country" class="co.com.training.beans.Country">
+                <property name="name" value="Colombia"/>
+            </bean>
+        </property>
+        <property name="city">
+            <bean id="city" class="co.com.training.beans.City">
+                <property name="name" value="Tulua"/>
+            </bean>
+        </property>
+        <constructor-arg index="0" value="1116237362"/>
+        <constructor-arg index="1" value="julian"/>
+        <constructor-arg index="2" value="tulua"/>
+    </bean>
+
 
 </beans>
