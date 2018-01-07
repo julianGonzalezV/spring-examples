@@ -1,7 +1,24 @@
 package co.com.training.beans.autowireexample;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 public class City {
     private String name;
+
+    @PostConstruct
+    private void initX(){
+        System.out.println("Inciando "+getClass());
+    }
+
+    /**
+     * metodo que se ejecutará al destruir el bea para liberar recursos desde el App.java
+     * llamelo como desee
+     */
+    @PreDestroy
+    private void destroyX(){
+        System.out.println("Finalizando "+getClass());
+    }
 
 
     public String getName() {

@@ -22,6 +22,7 @@ public class App {
         ApplicationContext context = new ClassPathXmlApplicationContext("co/com/training/xml/beans.xml");
         Greeting greeting = context.getBean(Greeting.class);
 
+
         //TAMBIEN PUEDE SER por medio de factory pattern:
         //Note como se aplica acá el patron factoria, dato un string
         Greeting greeting2 = (Greeting) context.getBean("greetinBean");
@@ -50,7 +51,10 @@ public class App {
 
         System.out.println(personAw.equals(personAw2));
 
-        //importante para liberar recursos
+        /*importante para liberar recursos, note como
+        note como en el xml o por anotacion se le dice cual es el metodo a ejecutar el iniciar o finalizar
+        default-init-method="initX"
+        default-destroy-method*/
         ((ConfigurableApplicationContext) context).close();
     }
 }

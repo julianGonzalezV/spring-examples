@@ -1,10 +1,26 @@
 package co.com.training.beans.autowireexample;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.List;
 
 public class Country {
     private String name;
     private City cityAw;
+
+    @PostConstruct
+    private void initX(){
+        System.out.println("Inciando "+getClass());
+    }
+
+    /**
+     * metodo que se ejecutará al destruir el bea para liberar recursos desde el App.java
+     * llamelo como desee
+     */
+    @PreDestroy
+    private void destroyX(){
+        System.out.println("Finalizando "+getClass());
+    }
 
     //private List<City> cities;
 

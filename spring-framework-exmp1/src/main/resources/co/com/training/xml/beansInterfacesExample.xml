@@ -1,0 +1,36 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd"
+
+>
+
+    <!--Necesario para que reconozca lso campos required en los .java-->
+   <!-- <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor"/>-->
+    <!--Necesario para que reconozca lso campos Autowire en los .java-->
+    <!--<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>-->
+
+<!--en lugar de las beans arriba para que reconozca loas anotaciones se puede evitar estar agregando nuevas con solo
+colocar context:annotation-config -->
+    <context:annotation-config/>
+
+    <bean id="messi" class="co.com.training.beans.autowireexample.FootballPlayer">
+        <property name="backNumber" value="10"/>
+        <property name="name" value="Lionel Messi"/>
+        <!-- ya no es necesario porque lo puse autowire <property name="team"  ref="barcelona"/>-->
+    </bean>
+
+    <!--como ya es Autowire entonces antes tenía el id barcelona ahpra cambia a equipo porque es la forma de llevarlo a byName
+    sino entonces fallará porque hay dos instancias de la interfaz TeamInterface barca y Juve
+    OJO SI ES UN PROYECTO EXISTENTE Y NO SE PUEDEN HACER ESE TIPO DE CAMBIOS ENTONCES
+    hacer uso de qualifier como se muestra a contiu¿nuación-->
+    <bean id="barcelona" class="co.com.training.beans.autowireexample.Barca">
+        <qualifier value="barcelonaQlf" />
+    </bean>
+    <bean id="juventus" class="co.com.training.beans.autowireexample.Juve"/>
+
+
+</beans>
