@@ -1,14 +1,19 @@
-package co.com.training.beans.autowireexample;
+package co.com.training.beans.stereotypes;
 
 import co.com.training.interfaces.TeamInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Required;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
+@Component
 public class FootballPlayer {
     private int backNumber;
+    @Value("Lionel messi comp")
     private String name;
     @Autowired
+    //@Qualifier("barcelonaQlf") NO fuera NECESARIO si no tuvieramos  DOS INSTANCIAS
+    //juve y barca
     @Qualifier("barcelonaQlf")
     private TeamInterface team;
 

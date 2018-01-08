@@ -1,0 +1,18 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd"
+
+>
+    <!--este invlucra tanto a este context:annotation-config y adicional detecta las anotaciones de Stereotype en los beans
+    por eso se comenta entonces el de annotation-config, component scan lo que hace es ir por las anotaciones e incliurlas en el contaxto -->
+    <context:component-scan base-package="co.com.training"/>
+
+    <!--note como el stereotype component hizo que se borrara all lo que se tenía en el xml y que quedara muuuucho
+    mas corto ES POR ESO LA RECOMENDACIÓN DEL USO DE ANNOTATIONS-->
+
+
+</beans>

@@ -1,0 +1,32 @@
+Un jugador de futbol pueda cambiar de equipo mediante entrada de usuario
+y mostrar al final los valores del jugador
+
+
+La idea es hacerlo de la forma:
+ 1) solo xml
+ 2) Haciendo uso intensivo de anotaciones
+ 3) Basado en Java , ninguna configuracion xml
+
+
+ Por entrada de teclado todo
+ Clases que debe implementar
+
+ Player
+    id
+    name
+    team
+    shirt
+ Team
+    id
+    name
+ TShirt
+    id
+    shirtNumber
+    shirtBrand
+ ShirtBrand
+    id
+    name
+
+
+ Para efectos de un curso puede ser con Vehículo y Placa(amarilla, blanca, ciudad instance of Ciudad)
+ que pueda cambiar la matricula de ciudad que exista Ciudad.java,

@@ -28,9 +28,13 @@ colocar context:annotation-config -->
     OJO SI ES UN PROYECTO EXISTENTE Y NO SE PUEDEN HACER ESE TIPO DE CAMBIOS ENTONCES
     hacer uso de qualifier como se muestra a contiu¿nuación-->
     <bean id="barcelona" class="co.com.training.beans.autowireexample.Barca">
+<!--
         <qualifier value="barcelonaQlf" />
+-->
     </bean>
-    <bean id="juventus" class="co.com.training.beans.autowireexample.Juve"/>
-
+    <bean id="juventus" class="co.com.training.beans.autowireexample.Juve">
+        <!--O SI es esta entonces se asociará al equipo juventus -->
+     <qualifier value="barcelonaQlf" />
+    </bean>
 
 </beans>
