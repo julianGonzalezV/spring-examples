@@ -132,12 +132,79 @@ AutoWire: cuando lo colocamos en el xml entonces el lo que hace es buscar la rel
 Cuando se trata de configurar vía xmls el autowire , se vuelve muy complejo porque ya no se sabe que bean está siendo injectado, se puede llegar a confundir 
 quizas con anotaciones se ataque el problema dado que la anotacion estará justo encima del objeto declarado para ser injected.
 
+
+Bean's scope o ambito de los beans(lo que en Java doc conocemos como private, public, protected)
+	Spring le dá dos alcances:
+	1) Singleton
+	2) Prototype
+
+
+Lazy loading: (cuando se hace el get de la instancia es cuando este concepto entra en juego) Importante para tratar temas de mejora del performance o consumo de mucha memoria. Ojo la etiqueta solo aplica para scope = singleton , ya que si es Prototype por defecto es Lazy
+al igual que si usamos BeanFactory para la generación de instancias.
+
+Method for Bean's life cicle:::::::::
+ 	default-init-method="initX"
+        default-destroy-method*
+La otra opcion es por medio de los métodos propios de java, mediante el uso de las Anotacioens:
+	@PostConstruct 
+	@PreDestroy
+Ojo para que funcionen debe colocar en el xml el bean que permite el uso de estas librerías
+
+Otra forma es implementando las interfaces:
+	InitializingBean(para el init por medio de la implementación del método afterPropertiesSet)
+	DisposableBean(para el destroy, por medio de la implementación del método Destroy)
+
+
+
+La manera mayormente recomendada es la por medio de anotaciones 
+@PostConstruct 
+@PreDestroy
+QUE debe además agregar el Bean en el xml springframework.context.annotation.commonAnotationsPostProcesor.
+
+
+:::::::::::::BeanPostProcessor::::::::::::::::
+Se usa para implementar lógica que requeramos adicional antes y depues de inicializar los bean
+
+Anotación Required(org.springframework.beans.factory.annotation.Required): Para definir que cierto atributos son requeridos.
+y se coloca en el método Set no en el atributo porque va a fallar algo con que no debe de ir en esa ubicación.
+
+
+
 :::::::::::2018-01-04:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
+:::::::::::2018-01-07:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+Anotación Autowired y Qualifier
+
+Autowired: Se coloca en el set o en la propiedad
+y en el xml se configura el xmnls
+
+        http://www.springframework.org/schema/context/spring-context-5.0.2.xsd"
+
+ xmlns:context="http://www.springframework.org/schema/context"
+
+y en el y en el schemaLocation se agrega a lo que ya hay 
+
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd"
+
+:::::Stereotypes:::::::::::::@Component, @Service @Controller, @Repository conocido como esteriotipos
+Sí en una clase colocamos cualquiera de las anotaciones va a funcionar lo que pasa es que se usan para entender el contexto del negocio
+ejemplo Dao se sería Repository
+
+1) @Component: Para indicar que una clase es un componente  bean de manera generica
+
+2) @Service
+3) @Repository
+4) @Controller
+
+:::::::::::2018-01-07:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
 
+:::::::::::2018-01-08:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+Spring JDBC:
 
 
-
-
+:::::::::::FIN:::2018-01-07:::::::::::::::::::::::::::::::::::::::::::::::::::::::::
