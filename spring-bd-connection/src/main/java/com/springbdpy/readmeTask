@@ -1,0 +1,4 @@
+El proyecto muestra la manera de conexión a base de datos vía Spring
+
+ Para efectos de un curso puede ser con Vehículo y Placa(amarilla, blanca, ciudad instance of Ciudad)
+ que pueda cambiar la matricula de ciudad que exista Ciudad.java,

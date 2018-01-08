@@ -1,14 +1,33 @@
 package com.springbdpy;
 
+import com.springbdpy.beans.Barca;
+import com.springbdpy.beans.Juve;
+import com.springbdpy.beans.Player;
+import com.springbdpy.beans.ShirtBrand;
+import com.springbdpy.service.impl.ShirtBrandServiceImp;
+import com.springbdpy.service.interfaces.ShirtBrandService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.Scanner;
 
 public class App {
-    public static void main(String[] args) {
-        ApplicationContext context = new AnnotationConfigApplicationContext(AppConfigurationTask1.class);
+    public static void main(String[] args) throws Exception {
+
+        ApplicationContext context = new ClassPathXmlApplicationContext("com/springbdpy/xml/beans.xml");
+
+        ShirtBrand brand = (ShirtBrand) context.getBean("shirtBrand");
+        brand.setId("brand0001");
+        brand.setName("spring brand");
+
+        ShirtBrandService brandService  =  (ShirtBrandService) context.getBean("shirtBrandServiceImp");
+        try{
+            brandService.insert(brand);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
 
         Player player1 = (Player) context.getBean("player");
         System.out.println("****************CREATED PLAYER************************");
@@ -16,31 +35,7 @@ public class App {
         System.out.println("****************END CREATED PLAYER********************");
 
 
-        while(true){
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("Choose  a team : 1-Barcelona ;  2-Juventus");
-            String choosedTeam = scanner.next();
-
-            switch (choosedTeam){
-                case "1":
-                    System.out.println("opcion Barca");
-                    player1.setTeam((Barca)context.getBean("barca"));
-                    break;
-                case "2":
-                    System.out.println("Opción Juve");
-                    player1.setTeam((Juve)context.getBean("juve"));
-                    break;
-                default:
-                    System.out.println("opcion no válida");
-                    ((ConfigurableApplicationContext) context).close();
-                    break;
-
-            }
-            //new team!
-            System.out.println("****************UPDATED PLAYER************************");
-            System.out.println(player1);
-            System.out.println("****************END UPDATED PLAYER********************");
-        }
+        ((ConfigurableApplicationContext) context).close();
 
 
     }

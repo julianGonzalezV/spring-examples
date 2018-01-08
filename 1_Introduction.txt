@@ -205,6 +205,20 @@ ejemplo Dao se sería Repository
 :::::::::::2018-01-08:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 Spring JDBC:
+Ver ejemplos de Dao en el proyecto con conección a BD
 
+/**
+     * Spring va a inyectar la conección siempre y ya no vamos a tener que crear una nueva
+     * siempre
+     */
+    private DataSource dataSource;
+
+<bean id="dataSource"
+          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/sportBd" />
+        <property name="username" value="root" />
+        <property name="password" value="password" />
+    </bean>
 
 :::::::::::FIN:::2018-01-07:::::::::::::::::::::::::::::::::::::::::::::::::::::::::
