@@ -28,9 +28,6 @@ public class ShirtBrand {
 
     @Override
     public String toString() {
-        return "ShirtBrand{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                '}';
+        return "ShirtBrand [id=" + id + ", name=" + name + "]";
     }
 }

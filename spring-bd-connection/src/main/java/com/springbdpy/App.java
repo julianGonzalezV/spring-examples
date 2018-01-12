@@ -1,10 +1,7 @@
 package com.springbdpy;
 
-import com.springbdpy.beans.Barca;
-import com.springbdpy.beans.Juve;
 import com.springbdpy.beans.Player;
 import com.springbdpy.beans.ShirtBrand;
-import com.springbdpy.service.impl.ShirtBrandServiceImp;
 import com.springbdpy.service.interfaces.ShirtBrandService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -19,9 +16,9 @@ public class App {
 
         ShirtBrand brand = (ShirtBrand) context.getBean("shirtBrand");
         brand.setId("brand0001");
-        brand.setName("spring brand");
+        brand.setName("spring brand3");
 
-        ShirtBrandService brandService  =  (ShirtBrandService) context.getBean("shirtBrandServiceImp");
+        ShirtBrandService brandService  =  (ShirtBrandService) context.getBean("shirtBrandServiceImpl");
         try{
             brandService.insert(brand);
         }catch (Exception e){

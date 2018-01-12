@@ -1,0 +1,19 @@
+1:
+> db.createUser({user: 'springUser', pwd:'123',roles:['readWrite','dbAdmin']})
+
+2
+OJO db es la base de datos actual, si ejecutamos db command nos dice que bd usa actualmente
+
+> db.shirt_brands.insert({id: 'ref1', name: 'lacoste'})
+> db.players.insert({id: 'ref1', name: 'lacoste'})
+
+Busqueda:
+db.shirt_brands.find({name:"lacoste"})
+
+
+
+> db.players.insert({id: 'ref1', name: 'lacoste'})
+> db.players.insert({id: 'ref1', name: 'lacoste'})
+
+Busqueda:
+db.shirt_brands.find({name:"lacoste"})

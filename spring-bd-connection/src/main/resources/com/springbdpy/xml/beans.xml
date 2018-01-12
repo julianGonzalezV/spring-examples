@@ -1,19 +1,29 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans.xsd
+       xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+       xsi:schemaLocation="
         http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context.xsd"
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/data/mongo
+        http://www.springframework.org/schema/data/mongo/spring-mongo.xsd
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
->
+
     <context:component-scan base-package="com.springbdpy"/>
 
-    <bean id="dataSource"
+    <!-- binding del archivo de propiedades  -->
+    <context:property-placeholder location="com/springbdpy/props/appprops.properties"/>
+
+    <!-- Default bean name is 'mongo' -->
+    <mongo:mongo-client id="mongoClient" host="${hostBd}" port="${portBd}"/>
+
+    <!--<bean id="dataSource"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
         <property name="url" value="jdbc:mysql://localhost:3306/sportBd" />
         <property name="username" value="root" />
         <property name="password" value="password" />
-    </bean>
+    </bean>-->
 </beans>

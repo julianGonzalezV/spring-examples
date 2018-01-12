@@ -1,7 +1,13 @@
 package com.springbdpy.dao.impl;
 
+import com.mongodb.BasicDBObject;
+import com.mongodb.DBCollection;
+import com.mongodb.MongoClient;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
 import com.springbdpy.beans.ShirtBrand;
 import com.springbdpy.dao.interfaces.ShirtBrandDao;
+import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -21,15 +27,18 @@ public class ShirtBrandDaoImpl implements ShirtBrandDao {
      * SI NO COLOCAMOS Aotowired entonces en el xml debemos agregar un nuevo bean
      * donde la clase sea esta ShirtBrandDaoImpl
      */
+  /*  @Autowired
+    private DataSource dataSource;*/
+
     @Autowired
-    private DataSource dataSource;
+    MongoClient mongoClient;
     /**
      * Note que si el uso de template que ofrece spring nos tocaría
      * que por cada método manejar el prepared statement, manejo de
      * la conexión
      * @throws Exception
      */
-    @Override
+  /*  @Override
     public void insert(ShirtBrand brand) throws Exception {
         String sql = "INSERT INTO SHIRT_BRAND (id, name) VALUES (?, ?)";
         Connection connection = null;
@@ -52,5 +61,18 @@ public class ShirtBrandDaoImpl implements ShirtBrandDao {
             }
 
         }
+    }*/
+
+
+    @Override
+    public void insert(ShirtBrand brand) throws Exception {
+        MongoDatabase db = mongoClient.getDatabase("spring-mongo-db1");
+        MongoCollection shirtBrands = db.getCollection("shirt_brands");
+        Document doc = new Document("id", brand.getId())//
+                .append("name", brand.getName());
+
+        shirtBrands.insertOne(doc); // first insert
     }
+
+
 }
